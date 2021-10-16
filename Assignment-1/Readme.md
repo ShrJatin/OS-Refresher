@@ -1,4 +1,4 @@
-# Assignment 2
+# Assignment 1
 ## Jatin Kumar Sharma
 ## Roll no: 2020563
 ## Cse -231 (OS)
