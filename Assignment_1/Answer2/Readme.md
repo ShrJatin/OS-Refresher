@@ -58,8 +58,8 @@ The Zip file 2020563 after extraction gives 6 files which includes 3 C files, a 
         You are in A before Call of B
 
         You are in function B now.
-        The number interpreted as 8byte ASCII String:
-        `--------------------------------------
+        The number interpreted as 8byte ASCII String:\n
+        `--------------------------------------\n
         W<*
         --------------------------------------`
         In B before calling the function C
