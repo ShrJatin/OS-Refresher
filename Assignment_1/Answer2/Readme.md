@@ -4,10 +4,10 @@
 ### Cse -231 (OS)
 
 ### Please use the Unix command line or WSL with Ubuntu in windows for a better experinence of this Project.
-The Zip file 2020563 after extraction gives 6 files which includes 3 C files, a asm file, a Makefile and a Readme file as follows:
+The Zip file A1_2020563.zip after extraction gives 6 files which includes 3 C files, a asm file, a Makefile and a Readme file as follows:
 
 ### --> Readme
-
+    
 ## Execution
 ### --> Makefile
 
@@ -59,9 +59,9 @@ The Zip file 2020563 after extraction gives 6 files which includes 3 C files, a 
 
         You are in function B now.
         The number interpreted as 8byte ASCII String:
--------------------------------------
-W<*
---------------------------------------
+        -------------------------------------
+        W<*
+        -------------------------------------
         In B before calling the function C
 
         In C before exit call

@@ -35,7 +35,12 @@ student_pthread.i:
 #cleaning the dierectory
 .PHONY : clean
 clean :
-	\rm -fr student_fork.s student_fork.i student_fork.o student_fork fork_Dumb.txt \
-	student_pthread.s student_pthread.i student_pthread.o student_pthread Thread_Dump.txt
-	
+	\rm -f student_fork.s student_fork.i student_fork.o student_fork\
+	 student_pthread.s student_pthread.i student_pthread.o student_pthread
+
+
+.PHONY : clean
+txtclean:
+	\rm -f fork_Dumb.txt Thread_Dump.txt 
+
 	
