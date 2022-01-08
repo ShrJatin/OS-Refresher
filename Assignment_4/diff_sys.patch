@@ -1,0 +1,154 @@
+--- linux-5.14.3/kernel/sys.c	2021-12-01 16:44:40.153474604 +0000
++++ temp/linux-5.14.3/kernel/sys.c	2021-09-12 07:01:00.000000000 +0000
+@@ -200,151 +200,6 @@
+ 	return error;
+ }
+ 
+-// JATIN:- Own Sys Call
+-SYSCALL_DEFINE3(kernel_2d_memcpy, void *, dest , void *, src, size_t, size)
+-{
+-	float buff[256];
+-
+-	if(!access_ok(src, size) || !access_ok(dest, size))
+-		return -EFAULT;
+-
+-	if (__copy_from_user(buff, src, size))
+-		return -EFAULT;
+-	
+-	if (__copy_to_user(dest, buff, size))
+-		return -EFAULT;
+-
+-	return size;
+-}
+-
+-
+-// implemennting queue at kernel level
+-#include <linux/list.h>
+-#include <linux/klist.h>
+-#include <linux/errno.h>
+-#include <linux/slab.h>
+-#include <linux/string.h>
+-
+-
+-DECLARE_RWSEM(queue_sem);
+-
+-struct qnode {
+-	char data[8];
+-	struct qnode *next;
+-	struct qnode *prev;
+-};
+-
+-
+-
+-struct qnode *head = NULL;
+-struct qnode *tail = NULL;
+-int qsize = 3;
+-
+-
+-// JATIN:- Own Syscall2
+-SYSCALL_DEFINE2(writer, char *, data, size_t, size)
+-{	
+-	struct qnode *new_node;
+-	char *buff;
+-
+-	if(!access_ok(data, size)){
+-		printk(KERN_INFO "writer: Access Denied for data\n");	
+-		return -EFAULT;
+-	}
+-
+-	buff = kmalloc(sizeof(data), GFP_KERNEL);
+-
+-	if (__copy_from_user(buff, data, size)){
+-		printk(KERN_INFO "writer: couldn't copy from user land to kernel memory\n");
+-		return -EFAULT;
+-	}
+-
+-	printk(KERN_INFO "writer: copied data is %s\n", buff);
+-
+-	// send value to the queue
+-	down_write(&queue_sem);
+-
+-	if(qsize == 0){
+-		printk(KERN_INFO "writer: Queue is full\n");
+-		up_write(&queue_sem);
+-		return -EFAULT;
+-	}
+-
+-	new_node = (struct qnode *)kmalloc(sizeof(struct qnode), GFP_KERNEL);
+-	memcpy(&(new_node->data), &buff, sizeof(new_node->data));
+-	
+-	new_node->next = NULL;
+-	new_node->prev = NULL;
+-
+-	qsize--;
+-
+-	if(head == NULL){
+-		head = new_node;
+-		tail = new_node;
+-	}
+-	else{
+-		tail->next = new_node;
+-		new_node->prev = tail;
+-		tail = new_node;
+-	}
+-
+-	printk(KERN_INFO "writer: Queued data is %s\n", new_node->data);
+-
+-	up_write(&queue_sem);
+-
+-	return 0;
+-}
+-
+-// JATIN:- Own Syscall3	
+-SYSCALL_DEFINE2(reader, char *, data, size_t, size)
+-{
+-	struct qnode *temp;
+-	char *buff;
+-
+-	if(!access_ok(data, size)){
+-		printk(KERN_INFO "reader: Access Denied for data\n");
+-		return -EFAULT;
+-	}
+-
+-	buff = kmalloc(sizeof(data), GFP_KERNEL);
+-
+-	// get value from the queue
+-	down_read(&queue_sem);
+-
+-	if(qsize == 3){
+-		printk(KERN_INFO "reader: Queue is empty\n");
+-		up_read(&queue_sem);
+-		return -EFAULT;
+-	}
+-
+-	temp = head;
+-	memcpy(&buff, &(temp->data), sizeof(buff));
+-
+-	printk(KERN_INFO "reader: dequed data is %s\n", buff);
+-
+-	if(qsize == 2) {
+-		head = NULL; 
+-		tail = NULL;
+-	}
+-	else{
+-		head = head->next;
+-		head->prev = NULL;
+-	}
+-
+-	qsize++;
+-
+-	up_read(&queue_sem);
+-	
+-	if (__copy_to_user(data, buff, size)){
+-		printk(KERN_INFO "reader: couldn't copy to user land from kernel space\n");
+-		return -EFAULT;
+-	}
+-
+-	return 0;
+-}
+-
+-
+-
+ SYSCALL_DEFINE3(setpriority, int, which, int, who, int, niceval)
+ {
+ 	struct task_struct *g, *p;

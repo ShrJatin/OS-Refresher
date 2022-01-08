@@ -1,0 +1,12 @@
+--- linux-5.14.3/arch/x86/entry/syscalls/syscall_64.tbl	2021-12-01 14:36:28.993467388 +0000
++++ temp/linux-5.14.3/arch/x86/entry/syscalls/syscall_64.tbl	2021-09-12 07:01:00.000000000 +0000
+@@ -369,9 +369,6 @@
+ 445	common	landlock_add_rule	sys_landlock_add_rule
+ 446	common	landlock_restrict_self	sys_landlock_restrict_self
+ 447	common	memfd_secret		sys_memfd_secret
+-448     common  kernel_2d_memcpy        sys_kernel_2d_memcpy
+-449	common	writer			sys_writer
+-450	common	reader			sys_reader
+ 
+ #
+ # Due to a historical design error, certain syscalls are numbered differently

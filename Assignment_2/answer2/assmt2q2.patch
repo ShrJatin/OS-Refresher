@@ -1,0 +1,49 @@
+Only in linux-5.14.3/: .Module.symvers.cmd
+Only in linux-5.14.3/: .btf.vmlinux.bin.o
+Only in linux-5.14.3/: .config
+Only in linux-5.14.3/: .missing-syscalls.d
+Only in linux-5.14.3/: .modules-only.symvers.cmd
+Only in linux-5.14.3/: .modules.order.cmd
+Only in linux-5.14.3/: .tmp_System.map
+Only in linux-5.14.3/: .tmp_vmlinux.btf
+Only in linux-5.14.3/: .tmp_vmlinux.kallsyms1
+Only in linux-5.14.3/: .tmp_vmlinux.kallsyms1.S
+Only in linux-5.14.3/: .tmp_vmlinux.kallsyms1.o
+Only in linux-5.14.3/: .tmp_vmlinux.kallsyms2
+Only in linux-5.14.3/: .tmp_vmlinux.kallsyms2.S
+Only in linux-5.14.3/: .tmp_vmlinux.kallsyms2.o
+Only in linux-5.14.3/: .version
+Only in linux-5.14.3/: .vmlinux.cmd
+Common subdirectories: linux-5.14.3/Documentation and temp/linux-5.14.3/Documentation
+Common subdirectories: linux-5.14.3/LICENSES and temp/linux-5.14.3/LICENSES
+Only in linux-5.14.3/: Module.symvers
+Only in linux-5.14.3/: System.map
+Only in linux-5.14.3/: System.map-5.14.3
+Common subdirectories: linux-5.14.3/arch and temp/linux-5.14.3/arch
+Common subdirectories: linux-5.14.3/block and temp/linux-5.14.3/block
+Common subdirectories: linux-5.14.3/certs and temp/linux-5.14.3/certs
+Common subdirectories: linux-5.14.3/crypto and temp/linux-5.14.3/crypto
+Common subdirectories: linux-5.14.3/drivers and temp/linux-5.14.3/drivers
+Common subdirectories: linux-5.14.3/fs and temp/linux-5.14.3/fs
+Common subdirectories: linux-5.14.3/include and temp/linux-5.14.3/include
+Common subdirectories: linux-5.14.3/init and temp/linux-5.14.3/init
+Common subdirectories: linux-5.14.3/ipc and temp/linux-5.14.3/ipc
+Common subdirectories: linux-5.14.3/kernel and temp/linux-5.14.3/kernel
+Common subdirectories: linux-5.14.3/lib and temp/linux-5.14.3/lib
+Common subdirectories: linux-5.14.3/mm and temp/linux-5.14.3/mm
+Only in linux-5.14.3/: modules-only.symvers
+Only in linux-5.14.3/: modules.builtin
+Only in linux-5.14.3/: modules.builtin.modinfo
+Only in linux-5.14.3/: modules.order
+Common subdirectories: linux-5.14.3/net and temp/linux-5.14.3/net
+Only in linux-5.14.3/: osProg
+Common subdirectories: linux-5.14.3/samples and temp/linux-5.14.3/samples
+Common subdirectories: linux-5.14.3/scripts and temp/linux-5.14.3/scripts
+Common subdirectories: linux-5.14.3/security and temp/linux-5.14.3/security
+Common subdirectories: linux-5.14.3/sound and temp/linux-5.14.3/sound
+Common subdirectories: linux-5.14.3/tools and temp/linux-5.14.3/tools
+Common subdirectories: linux-5.14.3/usr and temp/linux-5.14.3/usr
+Common subdirectories: linux-5.14.3/virt and temp/linux-5.14.3/virt
+Only in linux-5.14.3/: vmlinux
+Only in linux-5.14.3/: vmlinux.o
+Only in linux-5.14.3/: vmlinux.symvers
